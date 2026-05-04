@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>For Laherr ❤️</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #ffd6e7, #ffeef5);
+      overflow: hidden;
+    }
+
+    .container {
+      position: relative;
+      width: 320px;
+      height: 220px;
+      cursor: pointer;
+    }
+
+    .envelope {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: #ff8fb1;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+      overflow: hidden;
+    }
+
+    .flap {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #ff76a0;
+      clip-path: polygon(0 0, 50% 55%, 100% 0);
+      transform-origin: top;
+      transition: transform 0.8s ease;
+      z-index: 3;
+    }
+
+    .letter {
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      transform: translateX(-50%);
+      width: 92%;
+      height: 90%;
+      background: white;
+      border-radius: 12px;
+      padding: 22px;
+      overflow-y: auto;
+      transition: transform 1s ease;
+      z-index: 2;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    }
+
+    .container.open .flap {
+      transform: rotateX(180deg);
+      z-index: 1;
+    }
+
+    .container.open .letter {
+      transform: translateX(-50%) translateY(-110px);
+      z-index: 5;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 14px;
+      color: #ff4f87;
+    }
+
+    p {
+      font-size: 15px;
+      line-height: 1.6;
+      color: #444;
+      white-space: pre-line;
+    }
+
+    .hint {
+      position: absolute;
+      bottom: -35px;
+      width: 100%;
+      text-align: center;
+      color: #555;
+      font-size: 14px;
+    }
+
+    .heart {
+      position: absolute;
+      color: rgba(255, 105, 135, 0.4);
+      animation: float 6s linear infinite;
+      font-size: 20px;
+    }
+
+    @keyframes float {
+      from {
+        transform: translateY(100vh) scale(1);
+        opacity: 1;
+      }
+      to {
+        transform: translateY(-120px) scale(1.5);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container" onclick="toggleEnvelope()">
+    <div class="envelope"></div>
+    <div class="flap"></div>
+
+    <div class="letter">
+      <h2>For Laherr ❤️</h2>
+      <p>
+laherr .. kal raat ke liye i am soo sorry ... maine galat galt cheezein keh din ... 🥺
+
+I did not meann it at all ... balki ab jab bhi mai yaad kar rha hun ki kya kya kaha tha ... mujhe itna bura lag rha hai ki maine kaise keh diya ... 😔
+
+mai genuinely apne uppar kaam karunga… kyunki tu kabhi bhi yeh deserve nahi karti ❤️
+
+dil se sorryy .... 🥺
+
+to my favourite person in the whole universe ...
+meri dil ki dhadkan ... 
+lovee youu soo mucch laherr 💖💖
+      </p>
+    </div>
+
+    <div class="hint">Tap the envelope 💌</div>
+  </div>
+
+  <script>
+    function toggleEnvelope() {
+      document.querySelector('.container').classList.toggle('open');
+    }
+
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.innerHTML = '❤';
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.animationDuration = (Math.random() * 3 + 3) + 's';
+      heart.style.fontSize = (Math.random() * 20 + 10) + 'px';
+      document.body.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 6000);
+    }
+
+    setInterval(createHeart, 500);
+  </script>
+
+</body>
+</html>
